@@ -31,7 +31,20 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ] Jules Regnault in 1863
 - [ ] EMH Assumptions:
   - Large Number of Investors interacting in the market for profit - they have an incentive to find opportunities where the price is out of line with value
-  - New Information arrives randomly
+  - New Information arrives at random times, and at random rates constantly for different stocks and investors are paying attention to that information
+  - Prices adjust quickly and prices reflect all available information about that stock
+- [ ] Places where information comes from:
+  -  Technical Analysis Data: Price / volume (information is rapid, quick, and everybody can see it)
+  -  Fundamental Data: reported quarterly, points more to the root of the value of the company
+  -  Exogenous Data- Information about the world that would effect the price of the stock (Price of oil is exogenous data that would effect the price of an airline stock)
+  -  Company insiders - secretive and important information - information someone has inside the company that the general public doesn't have
+- [ ] 3 Forms of the EMH (Weak to Strong)
+  -  Weak: Future prices cannot be predicted by analyzing historical prices, meaning you cannot profit from looking at historical data (prohibites profitting from technical analysis, but leaves room for fundemental analysis and insider information)
+  -  Semi-Strong: Prices adjust immediately to new public information (prohibites profitting from technical analysis and fundemental analysis, but leaves room for insider information)
+  -  Strong: Prices reflect all information public and private (even insider information won't change the price of the stock) prohibites technical analysis, fundemental analysis, and insider information
+    - If strong is correct, then there is no way to make money by holding a portfolio, other than the market portfolio
+- [ ] Is the EMH correct? Well, some hedge funds make a lot of money so the Strong version is probably not true since people have profited from insider trading
+- [ ] P/E ratio - low price to earnings (PE ratio) corresponds to higher annualized returns - which means that PE ratios are very predictive of returns for many different stocks. This means that Fundemental analysis does have a correlation to Returns - refuting Semi Strong EMH. 
 ## 02-09 The Fundamental Law of active portfolio management
 - [ ] 
 ## 02-10 Portfolio optimization and the efficient frontier
