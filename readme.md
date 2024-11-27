@@ -46,7 +46,18 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ] Is the EMH correct? Well, some hedge funds make a lot of money so the Strong version is probably not true since people have profited from insider trading
 - [ ] P/E ratio - low price to earnings (PE ratio) corresponds to higher annualized returns - which means that PE ratios are very predictive of returns for many different stocks. This means that Fundemental analysis does have a correlation to Returns - refuting Semi Strong EMH. 
 ## 02-09 The Fundamental Law of active portfolio management
-- [ ] 
+- [ ] Warren Buffet, "Only When the tide goes out, do you discover who's been swimming naked"
+- [ ] "Wide Diversification not necessary unless the investor does not know what he/she is doing" - Talking about two things: Investor Skill and Breadth (# of investments)
+- [ ] Grinold's Law - Performance, Skill, Breadth
+- [ ] Fundemental Law of Active Portfolio Management: Performance = skill * Sqrt(Breadth)
+- [ ] To improve performace, you can improve your skill or find more opportunities for applying that skill
+- [ ] Performance is summarized as Information Ratio - Sharpe Ratio of Excess Returns, the manner in which the portfolio is exceeding market ratio
+- [ ] Return on the portfolio on a particular day is equal to the market component of the return (Beta) times market turn on that day  plus residual return (alpha). The alpha is due to the skill of the fund manager - the different of the market return for that day vs the price of the stock for that date
+- [ ] the IR (skill )is the mean(alpha) / stdev (alpha) (reward / risk)
+- [ ] Skill is summarized in IC (Information Coefficent) and Breadth is how many trading opporunities we have
+- [ ] IC is the correlation of forecasts to returns (0 - 1) 0 - no correlation between what is forecased and what occures, 1 - very strong correlation
+- [ ] BR, Breadth number of trading opportunities per year
+- [ ] IR = IC * Sqrt(BR) 
 ## 02-10 Portfolio optimization and the efficient frontier
 - [ ] 
 ## 03-05 Reinforcement learning
@@ -63,7 +74,9 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ] 
 ## Machine Learning – Chapter 13
 - [ ] 
-## Introduction to Statistical Learning (2nd Edition) – Deep Learning Chapter 10
+## Introduction to Statistical Learning (2nd Edition) – 
+
+## Deep Learning Chapter 10
 - [ ] 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
 - [ ] 
