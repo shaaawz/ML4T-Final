@@ -59,11 +59,79 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ] BR, Breadth number of trading opportunities per year
 - [ ] IR = IC * Sqrt(BR) 
 ## 02-10 Portfolio optimization and the efficient frontier
-- [ ] 
+- [ ] Mean Variance Optimization or Portfolio Optimization - Given a set of equities and target return, find an allocation to each equity that minimizes risk
+- [ ] What is risk? Volatility used as a measure of risk - the standard deviation of historical daily returns
+- [ ] Visualizing return vs risk in a scatterplot - createa portfolio by combining multiple stocks on a risk/return scatterplot and weighting it depending on allocation within the portfolio
+- [ ] Relationship between stocks in terms of covariance - relationship of risk is not just a factor or blend of the various risks, but it has to do with how they interact day to day
+- [ ] Harry Markowitz: Key to it is to pick the right stocks in the right proportions - a blend of stocks and bonds is the lowest risk 
+- [ ] Importance of covariance - how they move together - if they move similarily: high positive correlation coefficiant (close to 1) - if they move opposite - high negative correlation (close to -1)
+- [ ] Important to blend anti-correlated stocks together to create lower volatility
+- [ ] MVO Inputs: Factors it considers:
+    - Expected return - What we think the future returns are of each asset
+    - Volatility - Historically, how volatile each one of these assets have been
+    - Covariance - A matrix which shows within each asset and every other asset, what is the correltaion of daily returns
+    - Target Return - level of return between max return to min return we expect
+- [ ] MVO Outputs:
+    - A set of weights for each asset in the portfolio that minimizes risk, but meets the target return
+- [ ] The Efficient Frontier: For any particular return level, there is an optimal portfolio
+- [ ] As you reduce the return, the curve of the Efficient Frontier comes back indicating that risk is increaing as we reduce the return too much (this part of the curve is always excluded from the Efficient Frontier since no one wants increased risk for less reward)
+- [ ] Tangent line from orgin to the lowest part of the Efficient Frontier, where it hits is the max sharp ratio portfolio of all these assets
 ## 03-05 Reinforcement learning
-- [ ] 
+- [ ] Sense, Think, Act cycle: Observe s' state, processes s π, outputs a action - affects environment transitions t to new state
+- [ ] R reward - happens when robot takes a certain action: take actions to maximize reward π - simple look up table
+- [ ] Mapping trading to RL:
+    - State: market features, prices, our current holdings of stock, historical value
+    - Action: Buy, Sell, Do Nothing
+    - Reward: Money/Return we make
+- [ ] Markov decision Problem (MDP)
+    - Set of states S
+    - Set of actions A
+    - Transition function T[s, a, s']: Probability we go from state s to state s', if we take action a
+    - Sum of all possible s' must equal 1 in the Transition Function
+    - Reward Function R[s,a]: If we are in state s and we take action a, we get a reward
+    - Goal is to Find: Optimal Policy π*(s) to a that will maximize r
+      - The Algorithm that leads to π* if you know T and R: policty iteration or value iteration
+- [ ] Unknown Transition and Rewards: must interact with the world, observe and build policy in unknown areas
+- [ ] Experience Tuple <s, a, s', r> : When you experience s, and take action a, you end up in state s' and get reward r
+    - s' becomes the s of the next experience tuple and it continues down until you have a complete collection of experience tuples
+- [ ] Model Based RL uses Policy and/or Value Interation: Build models T[s, a, s'] and R[s,a] based on previous experience tuples - a tabular representation
+- [ ] Model Free Method uses Q-Learning: Develop policy just directly by looking at data
+- [ ] What to Optimize?
+    - Infinite Horizon: sum of all rewards from (1, infinity)
+    - Finite Horizon: limited "moves" or time rewards from (1, n) 
+    - Discounted Reward: Summation of Gamma * Reward
+      - Gamma is similar to interest rate. Gamma: as it increases, reward decreases a little bit (0 < Gamma <= 1.0) The closer to 1, the more value to the rewards in the future 
 ## 03-06 Q-Learning
-- [ ] 
+- [ ] Model Tree Approach (Doesn't konw or use T[] or R[])
+- [ ] Builds table of utility values as agent interacts with the world
+- [ ] What is Q? Value of taking action a in state s
+- [ ] Q Function Q[s,a] = immediate reward + discounted reward (reward for future action)
+- [ ] How to Use Q
+      - Policy: What action do we take in state s?
+      - π*(s) - Q*[s,a]
+- [ ] Q Learner Procedure
+    - Big Picture:
+    - Select Training Data from older time series
+    - Iterate over time and collect experience tuples throughout training data <s, a, s', r>
+      - Details of Iteration:
+      - Set start time, init Q[]
+      - Compute s
+      - Select a
+      - Observe r, s' and update Q table
+    - Test your policy π - how well it performs in back testing
+    - Repeat until Converge / Policy does not get better with more interations
+- [ ] Update Rule: Q'[s,a] = (1 - 	α ) * Q[s,a] + (	α * improved estimate / 	α * (r + λ * later reward)
+    - Alpha 	α : Learning Rate [0, 1.0] - usually .02. Large alpha means learning more quickly
+    - Lambda λ : Discount Rate [0, 1.0] Low value: values immediate rewards, High Value: value later rewards more (A reward 20 setps in the fugure is owrth the same as reward right now)
+- [ ] New Value of Q =  Old value of Q + immediate reward + Future Discounted Rewards for Future Actions
+- [ ] Last Part of Equation asks: What is the value of those future rewards if we reach s' and act appropriately?
+- [ ] Two Finer Points:
+    - Success Depends on Exporation
+    - Choose Random Action w Probability c (.3)
+    - Over iterations, make probability c smaller until we don't choose randomly anymore
+- [ ] Two Possible "Flips of the Coin" during each iteratoin:
+    - First Flip determines if we will use randomness or go off highest Q-value
+    - Section Flip: if choosing randomly, determines random action to select. Random Actions force system to try different actions and states, which improves exploration 
 ## 03-07 Dyna
 - [ ] 
 
@@ -74,10 +142,8 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ] 
 ## Machine Learning – Chapter 13
 - [ ] 
-## Introduction to Statistical Learning (2nd Edition) – 
+## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning – 
 
-## Deep Learning Chapter 10
-- [ ] 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
 - [ ] 
 ## Handbook of AI and Big Data Applications in Investments - Chapters 10 and 11
