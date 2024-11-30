@@ -140,8 +140,24 @@ Topics in ML4T to study for Final - feel free to add your notes!
 
 ## What Hedge Funds Really Do Ch. 9
 - [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 ## Machine Learning – Chapter 13 - Deep Learning
-
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 ## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning 
 - [ ] - [ ] The cornerstone of deep learning is the neural network
 - [ ] Neural networks resurfaced after 2010 with the new name deep learning, with new architectures,
@@ -288,15 +304,7 @@ network, which is essentially a black box. The lasso selected 12 of the 19
 variables in making its prediction. So in cases like this we are much better
 off following the Occam’s razor principle: when faced with several methods
 that give roughly equivalent performance, pick the simplest
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+
 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
 - [ ]
