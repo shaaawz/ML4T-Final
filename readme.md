@@ -141,7 +141,9 @@ Topics in ML4T to study for Final - feel free to add your notes!
 ## What Hedge Funds Really Do Ch. 9
 - [ ] 
 ## Machine Learning – Chapter 13 - Deep Learning
-- [ ] The cornerstone of deep learning is the neural network
+
+## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning 
+- [ ] - [ ] The cornerstone of deep learning is the neural network
 - [ ] Neural networks resurfaced after 2010 with the new name deep learning, with new architectures,
 additional bells and whistles, and a string
 of success stories on some niche problems such as image and video classification, speech and text modeling.
@@ -234,7 +236,58 @@ considerably with somewhat different examples, and thus protects against
 overfitting. In fact we can see this as a form of regularization: we build a
 cloud of images around each original image, all with the same label. This
 kind of fattening of the data is similar in spirit to ridge regularization.
-
+#### Document Classification
+- [ ] A new type of example that has important
+applications in industry and science: predicting attributes of documents.
+Examples of documents include articles in medical journals, Reuters news
+feeds, emails, tweets, and so on
+- [ ] Example: IMBD Reviews - Each review can be a different length, include slang or non-words, have
+spelling errors, etc. We need to find a way to featurize such a document. This is modern parlance for defining a set of predictors.
+- [ ] The simplest and most common featurization is the bag-of-words model. We score each document for the presence or absence of each of the words in
+a language dictionary — in this case an English dictionary. If the dictionary
+contains M words, that means for each document we create a binary feature
+vector of length M, and score a 1 for every word present, and 0 otherwise
+- [ ] The bag-of-words model summarizes a document by the words present,
+and ignores their context. There are at least two popular ways to take the
+context into account
+  - [ ]  The bag-of-n-grams model. For example, a bag of 2-grams records the consecutive co-occurrence of every distinct pair of words. “Blissfully long” can be seen as a positive phrase in a movie review, while
+“blissfully short” a negative.
+- [ ] Treat the document as a sequence, taking account of all the words in
+the context of those that preceded and those that follow
+#### Recurrent Neural Networks
+- [ ] In a recurrent neural network (RNN), the input object X is a sequence.
+- [ ] The order of
+the words, and closeness of certain words in a sentence, convey semantic
+meaning. RNNs are designed to accommodate and take advantage of the
+sequential nature of such input objects, much like convolutional neural networks accommodate the spatial structure of image inputs. The output Y
+can also be a sequence (such as in language translation), but often is a
+scalar, like the binary sentiment label of a movie review document.
+- [ ] There are many variations and enhancements of the simple RNN we
+used for sequence modeling. One approach we did not discuss uses a onedimensional convolutional neural network, treating the sequence of vectors
+(say words, as represented in the embedding space) as an image. The convolution filter slides along the sequence in a one-dimensional fashion, with
+the potential to learn particular phrases or short subsequences relevant to
+the learning task.
+#### When To use Deep Learning
+- [ ] The performance of deep learning in this chapter has been rather impressive. It nailed the digit classification problem, and deep CNNs have really
+revolutionized image classification. We see daily reports of new success stories for deep learning. Many of these are related to image classification
+tasks, such as machine diagnosis of mammograms or digital X-ray images,
+ophthalmology eye scans, annotations of MRI scans, and so on. Likewise
+there are numerous successes of RNNs in speech and language translation,
+forecasting, and document modeling. The question that then begs an answer is: should we discard all our older tools, and use deep learning on every
+problem with data?
+- [ ] We see similar performance for all three
+models. We report the mean absolute error on the test data, as well as
+the test R2 for each method, which are all respectable (see Exercise 5).
+We spent a fair bit of time fiddling with the configuration parameters of
+the neural network to achieve these results. It is possible that if we were to
+spend more time, and got the form and amount of regularization just right,
+that we might be able to match or even outperform linear regression and
+the lasso. But with great ease we obtained linear models that work well.
+Linear models are much easier to present and understand than the neural
+network, which is essentially a black box. The lasso selected 12 of the 19
+variables in making its prediction. So in cases like this we are much better
+off following the Occam’s razor principle: when faced with several methods
+that give roughly equivalent performance, pick the simplest
 - [ ]
 - [ ]
 - [ ]
@@ -244,14 +297,37 @@ kind of fattening of the data is similar in spirit to ridge regularization.
 - [ ]
 - [ ]
 - [ ]
-- [ ]
-## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning – 
-- [ ] 
 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 ## Handbook of AI and Big Data Applications in Investments - Chapters 10 and 11
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 ## Keynote on Algorithmic Bias (Drs. Isbell and Littman)
 - [ ] 
 ## Interview with Tammer Kamel (Ed Lessons)
