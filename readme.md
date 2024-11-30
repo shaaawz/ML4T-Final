@@ -140,9 +140,113 @@ Topics in ML4T to study for Final - feel free to add your notes!
 
 ## What Hedge Funds Really Do Ch. 9
 - [ ] 
-## Machine Learning – Chapter 13
-- [ ] 
+## Machine Learning – Chapter 13 - Deep Learning
+- [ ] The cornerstone of deep learning is the neural network
+- [ ] Neural networks resurfaced after 2010 with the new name deep learning, with new architectures,
+additional bells and whistles, and a string
+of success stories on some niche problems such as image and video classification, speech and text modeling.
+#### 10.1 Single Layer Neural Networks
+- [ ] A neural network takes an input vector of p variables X = (X1, X2, . . . , Xp)
+and builds a nonlinear function f(X) to predict the response Y .
+- [ ] feed-forward neural network for modeling a quantitative response
+using predictors. In the terminology of neural networks, the four features X1, . . . , X4 make up the units in the input layer. Each of the inputs from the input layer feeds into each of the K hidden input layer units (we get to pick K). 
+- [ ] The preferred choice in modern neural networks is the ReLU (rectified linear unit) activation function
+- [ ] So in words, the model depicted in Figure 10.1 derives five new features
+by computing five different linear combinations of X, and then squashes
+each through an activation function g(·) to transform it. The final model
+is linear in these derived variables.
+The name neural network originally derived from thinking of these hidden
+units as analogous to neurons in the brain — values of the activations
+Ak = hk(X) close to one are firing, w
+#### 10.2 Mutlilayer Neural Networks
+- [ ] Modern neural networks typically have more than one hidden layer, and
+often many units per layer. In theory a single hidden layer with a large
+number of units has the ability to approximate most functions. However,
+the learning task of discovering a good solution is made much easier with
+multiple layers each of modest size.
+- [ ]  Example is number classification
+- [ ]  More generally, in multi-task learning one can predict different responses simultaneously with a single network; they
+all have a say in the formation of the hidden layers.
+#### Convolutional Neural Networks
+- [ ]  Image Classification
+- [ ]  A special family of convolutional neural networks (CNNs) has evolved for
+classifying images such as these, and has shown spectacular success on a
+wide range of problems. CNNs mimic to some degree how humans classify
+images, by recognizing specific features or patterns anywhere in the image
+that distinguish each particular object class.
+- [ ] The network first identifies low-level features in the input image, such
+as small edges, patches of color, and the like. These low-level features are
+then combined to form higher-level features, such as parts of ears, eyes,
+and so on. Eventually, the presence or absence of these higher-level features
+contributes to the probability of any given output class.
+- [ ]  How does a convolutional neural network build up this hierarchy? It combines two specialized types of hidden layers, called convolution layers and
+pooling layers. Convolution layers search for instances of small patterns in
+the image, whereas pooling layers downsample these to select a prominent
+subset. In order to achieve state-of-the-art results, contemporary neuralnetwork architectures make use of many convolution and pooling layers.
+We describe convolution and pooling layers next.
+- [ ] Convolution Layers: made up of a large number of convolution filters, each of which is a template that determines whether a particular local feature is
+present in an image. A convolution filter relies on a very simple operation,
+called a convolution, which basically amounts to repeatedly multiplying
+matrix elements and then adding the results.
+- [ ] Convolution filters find local features in an image, such as edges
+and small shapes.
+- [ ] We typically apply the ReLU activation function (10.5) to the convolved image. This step is sometimes viewed as a separate layer in
+the convolutional neural network, in which case it is referred to as a
+detector layer
+#### Pooling Layers
+- [ ] A pooling layer provides a way to condense a large image into a smaller
+summary image. While there are a number of possible ways to perform
+pooling, the max pooling operation summarizes each non-overlapping 2 × 2
+block of pixels in an image using the maximum value in the block. This
+reduces the size of the image by a factor of two in each direction, and it
+also provides some location invariance: i.e. as long as there is a large value
+in one of the four pixels in the block, the whole block registers as a large
+value in the reduced image.
+#### Architecture of a Convolutional Neural Network
+- [ ] The number of convolution filters in a
+convolution layer is akin to the number of units at a particular hidden layer
+in a fully-connected neural network
+- [ ] This number also defines the number of channels in the resulting threedimensional feature map. We have also described a pooling layer, which
+reduces the first two dimensions of each three-dimensional feature map.
+- [ ] After this first round of convolutions, we
+now have a new “image”; a feature map with considerably more channels
+than the three color input channels (six in the figure, since we used six
+convolution filters).
+- [ ] Each subsequent convolve layer is similar to the first. It takes as input
+the three-dimensional feature map from the previous layer and treats
+it like a single multi-channel image. Each convolution filter learned
+has as many channels as this feature map
+- [ ] Since the channel feature maps are reduced in size after each pool
+layer, we usually increase the number of filters in the next convolve
+layer to compensate.
+- [ ] Sometimes we repeat several convolve layers before a pool layer. This
+effectively increases the dimension of the filter.
+- [ ] These operations are repeated until the pooling has reduced each channel
+feature map down to just a few pixels in each dimension. At this point the
+three-dimensional feature maps are flattened — the pixels are treated as
+separate units — and fed into one or more fully-connected layers before
+reaching the output layer, which is a softmax activation for the 100 classes
+#### Data Augmentation
+- [ ] An additional important trick used with image modeling is data augmentation. Essentially, each training image is replicated many times, with each replicate randomly distorted in a natural way such that human recognition
+is unaffected. 
+- [ ] At face value this is a way of increasing the training set
+considerably with somewhat different examples, and thus protects against
+overfitting. In fact we can see this as a form of regularization: we build a
+cloud of images around each original image, all with the same label. This
+kind of fattening of the data is similar in spirit to ridge regularization.
+
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 ## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning – 
+- [ ] 
 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
 - [ ] 
