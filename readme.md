@@ -139,15 +139,34 @@ Topics in ML4T to study for Final - feel free to add your notes!
 # NOTES FROM READING:  
 
 ## What Hedge Funds Really Do Ch. 9
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] Buffett invests strongly in a small number of companies: As of September 2010, 54 percent of BRK-A’s holdings were in just three stocks: Coca Cola (KO), American Express (AXP), and Wells Fargo (WFC). Ninety percent of their holdings were in just 12 stocks.
+- [ ] In the 1980s, Richard Grinold introduced what he calls the Fundamental Law of Active Portfolio Management. It is described nicely in his book with Ronald Kahn, Active Portfolio Management . For the moment we will offer a simplified version of this law. We paraphrase it as follows:
+- [ ] performance = skill * √breadth
+- [ ] Skill is a measure of how well a manager transforms information about an equity into an accurate prediction of future return, and breadth represents the number of investment decisions (trades) the manager makes each year. This law suggests that as a manager’s skill increases, returns increase. That is not surprising. What is interesting and perhaps surprising is that to double performance at the same level of skill, a manager must find four times as many opportunities to trade.
+- [ ] There are two ways to increase the breadth of a portfolio: We can choose to hold more equities at once, or we can turn over those assets more frequently. The first approach is more suitable for a conventional managed portfolio approach to investing, while the second relates more to an active trading strategy
+- [ ] Two Categories of Risk:
+    - [ ] Systematic risk is that risk undertaken by exposer to any asset in the asset class. example: Market Falls
+    - [ ] Specific risk i sthe risk associated with a particular asset. Example: Oil company stock falls because its new oil field fails - despite other occurances in the stock market
+- [ ] Diversification mutes specific risk. Volatility of a portoflio declines as more individaul stocks are included into the portfolio
+- [ ] Yet Experts argue that diversification beyond 20 to 40 separate issues provides little additional risk reduction.
+- [ ] There is a trade-off, however. The more breadth in an investor’s portfolio, the less expertise they can apply to each of its contents. Since alpha is assumed to stem from research and knowledge— that is, from investment-specific information— the broader the portfolio, the less alpha can be generated
+- [ ] Another approach to adding breadth to a portfolio or strategy is through more trading opportunities.
+- [ ] Coin Flip example: If heads was 51% and you had $1000 to bet on a coin flip, would you bet $1000 in one flip or $1 on 1000 flips? The expected the return is $20 on both, but the risk is very different.
+- [ ] First, for the single bet option, there is a 49 percent chance that you will lose your entire $1,000 stake. For the multiple bet option, the probability of a total loss— the coin coming up tails each of 1,000 times— is 0.49 ^ 1000, which is infinitesimal (too small to be displayed on our spreadsheet, even to 23 significant digits).
+- [ ]  So, for this measure, risk is substantially lower for the 1000-bet scenario. But we can also use standard deviation— a measure of the range of plausible returns— as a measure of risk. For a single $1,000 bet, the standard deviation is $31.62. For the 1,000 $1 bets, the standard deviation is $1. So for this measure, we also see significantly lower the risk for the 1000 bet case. In finance, we often compare strategies in terms of risk adjusted return, which is to say return divided by the risk. So the return to risk ratios of the two options are as follows:
+- [ ]  Single bet: $20 / $31.62 risk = 0.6325 Return/Risk Ratio (Similar to Sharpe Ratio)
+- [ ]  Thousand Bets: $20 / $1 risk = 20.0 Return/Risk Ratio
+- [ ]  Information Ratio: Similar to Sharpe Ratio - It adjusts return for risk by dividing them
+- [ ]  IR = Excess return per period / standard deviation of excess return per period
+- [ ]  Excess Return seeks to measure return that is due to the investor's skill rather than return due to the market, the alpha component or residual
+- [ ]  Total Return has two risk components: Market Risk (captured by standard deviation of beta x return)
+- [ ]  Investor skill risk (Capured by the stdv of alpha)
+- [ ]  Hedging investing strategies seek to minimize or eliminate the market risk, leaving a clear field to exploit the investor’s alpha. A summary measure of skill is the information ratio of an investor’s alpha, or: IR (alpha) = Mean (alpha)/Standard deviation (alpha).
+- [ ]  Information Coefficient: correlation of a manager's predictions about asset prices with their actual future prices. Perfect predictor would have IC of 1.0, Perfectly wrong predictor would be -1.0
+- [ ]  Breadth - Number of trading opportunities presented over time
+- [ ]  Fundemental Law in Full: IR = IC * √breadth
+- [ ]  An increment of added skill, reflected in the information coefficient, has a greater reflect on risk-adjusted return (the information ratio) than does an equal increment in portfolio breadth. This is because the portfolio breadth affects the IR as a square root, whereas IC affects IR proportionally. So for an investor like Buffett, whose IC is probably among the highest on the planet, he is absolutely correct— for him— to disparage diversification.
+- [ ]  
 ## Machine Learning – Chapter 13 - Deep Learning
 - [ ] 
 - [ ] 
