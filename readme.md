@@ -175,7 +175,7 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ]  Fundemental Law in Full: IR = IC * √breadth
 - [ ]  An increment of added skill, reflected in the information coefficient, has a greater reflect on risk-adjusted return (the information ratio) than does an equal increment in portfolio breadth. This is because the portfolio breadth affects the IR as a square root, whereas IC affects IR proportionally. So for an investor like Buffett, whose IC is probably among the highest on the planet, he is absolutely correct— for him— to disparage diversification.
 - [ ]  
-## Machine Learning – Chapter 13 - Deep Learning
+## Machine Learning – Chapter 13 - Reinforcement Learning
 - [ ] 
 - [ ] 
 - [ ] 
