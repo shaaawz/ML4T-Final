@@ -356,6 +356,24 @@ that give roughly equivalent performance, pick the simplest
 - [ ]
 - [ ]
 ## Keynote on Algorithmic Bias (Drs. Isbell and Littman)
-- [ ] 
+- [ ] You cant escape hyperparameters and latent variables: Machine Learning as a Software Engineer Enterprise
+- [ ] Basic Conceit: As a community, ew are complier hackers. We should send at least as much time being software engineers, language nerds and ethnographers 
+- [ ] Algorithmic Bias: "Math likes some people, and hates other people" Machine Learning can be biased towards certain people - Is it the data or the algorithm that is biased? ML issue or Implementation issue?
+- [ ] Past technology: Decisions are made in selection and creation in each stage - Kodak made decisoins to create the best "printed photos" but those decisions resulted in too dark representation of black skined people on film. "Some decisions are justified in making tradeoffs, but they are tradeoffs nonetheless and they make some things better, and some things worse".
+- [ ] Training algorithms Intervention: recognize an anomaly and deal with different groups differently: receognize when the learner was consistently wrong for a certain parameter, and change for that parameter. 
+- [ ] Software Engineering: Systematic application of methods, pricples and techniques to build software in a rigorous way - provides a framework for factoring in the consequences of technical and non-technical decisions
+- [ ] Current technology: Negative Applications of predictive algorithms. PULSE / StyleGAN: took low res photots and built high res systems - often would change the feaures of people of color when it upsampled images to look more "white" 
+- [ ] "If you want the ML to do something, you have to specifically ask it to do that"
+- [ ] Facial Recognition issues with gender and races. The way we use algos can create technical bias. 
+- [ ] Security issues, who's data is being used for facial recognition systems? 
+- [ ] The drive to improve model accuracy has coincided with both an increase in model parameters and demand for data. This demand has led to data collection from an increasing number of people, often without their knowledge
+- [ ] Theres many kinds of bias, technical bias, objective bias, personal bias. Bias is a problem and it can creep in anywhere in the pipeline and needs to be addressed
+- [ ] Tools to solve the Bias Problem already exist: Environment-Independent Task Specifications via GLTL, Accessibility for nonML people when the models are making decisions for people. Interpretable ML models are better than "black box" 
+- [ ] If we apply computation specification thinking, we can bring more people along and that would help us to identify and fix bias
+- [ ] Adaptive Programming - Probability-based, utility-based, trained(learning)
+- [ ] Computational Thinking teaches us how to specify what we want exactly and more diversity in ML ensures that all perspectives are heard
+- [ ] Larger sample of people from different background showing an agent how to do things removes bias
+- [ ] important to pay attention to whole learning pipeline, there are interesting technical problems to be solved, moral concerns about what happens to people if we get this wrong, taking the long view is essential
+- [ ] Bias stems from the decisions we make, but we can identify it and be cognizant of it 
 ## Interview with Tammer Kamel (Ed Lessons)
 - [ ] 
