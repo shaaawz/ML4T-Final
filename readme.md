@@ -174,8 +174,148 @@ Topics in ML4T to study for Final - feel free to add your notes!
 - [ ]  Breadth - Number of trading opportunities presented over time
 - [ ]  Fundemental Law in Full: IR = IC * √breadth
 - [ ]  An increment of added skill, reflected in the information coefficient, has a greater reflect on risk-adjusted return (the information ratio) than does an equal increment in portfolio breadth. This is because the portfolio breadth affects the IR as a square root, whereas IC affects IR proportionally. So for an investor like Buffett, whose IC is probably among the highest on the planet, he is absolutely correct— for him— to disparage diversification.
-- [ ]  
 ## Machine Learning – Chapter 13 - Reinforcement Learning
+- [ ] Reinforcement learning addresses the question of how an autonomous agent that
+senses and acts in its environment can learn to choose optimal actions to achieve its
+goals. Each time the agent performs an action in its environment, a trainer may provide a
+reward or penalty to indicate the desirability of the resulting state. The
+task of the agent is to learn from this indirect, delayed reward, to choose sequences
+of actions that produce the greatest cumulative reward. This chapter focuses on
+an algorithm called Q learning that can acquire optimal control strategies from
+delayed rewards, even when the agent has no prior knowledge of the effects of
+its actions on the environment. 
+- [ ] The robot, or agent, has a set of sensors to
+observe the state of its environment, and a set of actions it can perform to alter
+this state. Its task is to learn a control
+strategy, or policy, for choosing actions that achieve its goals.
+- [ ] This reward function may be built into the robot, or known only to an
+external teacher who provides the reward value for each action performed by the
+robot. The task of the robot is to perform sequences of actions, observe their consequences, and learn a control policy. The control policy we desire is one that, from
+any initial state, chooses actions that maximize the reward accumulated over time
+by the agent
+- [ ] An agent interacting with its environment.
+The agent exists in an environment described
+by some set of possible states S. It can
+perform any of a set of possible actions
+A. Each time it performs an action a, in
+some state st the agent receives a real-valued
+reward r, that indicates the immediate value
+of this state-action transition. This produces
+a sequence of states si, actions ai, and
+immediate rewards ri as shown in the figure.
+The agent's task is to learn a control policy,
+n : S + A, that maximizes the expected
+sum of these rewards, with future rewards
+discounted exponentially by their delay.
+- [ ]  This reinforcement learning problem differs from other function
+approximation tasks in several important respects:
+    -  Delayed reward: In
+reinforcement learning, however, training information is not available in this
+form. Instead, the trainer provides only a sequence of immediate reward values as the agent executes its sequence of actions. The agent, therefore, faces
+the problem of temporal credit assignment: determining which of the actions
+in its sequence are to be credited with producing the eventual rewards.
+    - Exploration: In reinforcement learning, the agent influences the distribution
+of training examples by the action sequence it chooses. This raises the question of which experimentation strategy produces most effective learning. The
+learner faces a tradeoff in choosing whether to favor exploration of unknown
+states and actions (to gather new information), or exploitation of states and
+actions that it has already learned will yield high reward (to maximize its
+cumulative reward).
+    -  Partially observable states: Although it is convenient to assume that the
+agent's sensors can perceive the entire state of the environment at each time
+step, in many practical situations sensors provide only partial information.
+    - Life-long learning: Unlike isolated function approximation tasks, robot learning often requires that the robot learn several related tasks within the same
+environment, using the same sensors
+- [ ] In a Markov decision process (MDP) the agent can perceive a set S of distinct
+states of its environment and has a set A of actions that it can perform.At each
+discrete time step t, the agent senses the current state st, chooses a current action
+a,, and performs it. The environment responds by giving the agent a reward r =
+r (s, a,) and by producing the succeeding state s(t+l) = ϴ(s(t), a()).
+Here the functions ϴ  and r are part of the environment and are not necessarily known to the agent. 
+- [ ] In an MDP, the functions  ϴ (st, a,) and r(s,, a,) depend only on the current state
+and action, and not on earlier states or actions. 
+- [ ] The task of the agent is to learn a policy, π : S -> A, for selecting its next
+action a, based on the current observed state s; that is, π(s) = a,
+- [ ] Discounted cumulative reward (V) achieved by policy π from initial state s. It is reasonable to
+discount future rewards relative to immediate rewards because, in many cases,
+we prefer to obtain the reward sooner rather than later. 
+- [ ] We are now in a position to state precisely the agent's learning task. We
+require that the agent learn a policy n that maximizes V"(s) for all states s.
+We will call such a policy an optimal policy and denote it by  π*.
+optimal policy  π* =   argmax V" (s), (Vs) 
+- [ ] Note
+the immediate reward in this particular environment is defined to be zero for
+all state-action transitions except for those leading into the state labeled G. It is
+convenient to think of the state G as the goal state, because the only way the agent
+can receive reward, in this case, is by entering this state. Note in this particular
+environment, the only action available to the agent once it enters the state G is
+to remain in this state. For this reason, we call G an absorbing state. 
+- [ ] What evaluation function should the agent attempt to learn? One obvious
+choice is V*. The agent should prefer state sl over state s2 whenever V*(sl) >
+V*(s2), because the cumulative future reward will be greater from sl. Of course
+the agent's policy must choose among actions, not among states. However, it can
+use V* in certain settings to choose among actions as well. The optimal action
+in state s is the action a that maximizes the sum of the immediate reward r(s, a)
+plus the value V* of the immediate successor state, discounted by y. 
+
+- [ ] Equation (13.3): n*(s) = argmax[r(s, a) f y V*(G(s, a))] 
+- [ ] Thus, the agent can acquire the optimal policy by learning V*, provided it has
+perfect knowledge of the immediate reward function r and the state transition
+function 6. When the agent knows the functions r and 6 used by the environment
+to respond to its actions, it can then use Equation (13.3) to calculate the optimal
+action for any state s.
+- [ ] cases where either
+ϴ or r is unknown, learning V* is unfortunately of no use for selecting optimal
+actions because the agent cannot evaluate Equation (13.3). What evaluation function should the agent use in this more general setting? The evaluation function Q,
+defined in the following section, provides one answer. 
+- [ ]  In other words, the value of Q is the reward received
+immediately upon executing action a from state s, plus the value (discounted by
+y) of following the optimal policy thereafter.   π*(s) = argmax Q (s , a) 
+- [ ] Why is this rewrite important? Because it shows that if the agent learns the Q
+function instead of the V* function, it will be able to select optimal actions even
+when it has no knowledge of thefunctions r and ϴ. it need only consider each available action a in its current state s and choose the action that maximizes Q(s, a). 
+- [ ] Part of
+the beauty of Q learning is that the evaluation function is defined to have precisely
+this property-the value of Q for the current state and action summarizes in a
+single number all the information needed to determine the discounted cumulative
+reward that will be gained in the future if action a is selected in state s.
+To illustrate, Figure 13.2 shows the Q values for every state and action in the
+simple grid world. Notice that the Q value for each state-action transition equals
+the r value for this transition plus the V* value for the resulting state discounted by
+y. Note also that the optimal policy shown in the figure corresponds to selecting
+actions with maximal Q values.
+- [ ] The key problem is finding a reliable way to estimate training values for
+Q, given only a sequence of immediate rewards r spread out over time. This can
+be accomplished through iterative approximation.
+- [ ] which allows rewriting Equation (13.4) as
+Q(s, a) = r(s, a) + alpha max Q(theta(s, a), a')
+- [ ] In this algorithm the learner represents its hypothesis Q by a large table
+with a separate entry for each state-action pair. The table entry for the pair (s, a)
+stores the value for ~(s, a)-the learner's current hypothesis about the actual
+but unknown value Q(s, a). The table can be initially filled with random values
+(though it is easier to understand the algorithm if one assumes initial values of
+zero). The agent repeatedly observes its current state s, chooses some action a,
+executes this action, then observes the resulting reward r = r(s, a) and the new
+state s' = 6(s, a). It then updates the table entry for ~(s, a) following each such
+transition, according to the rule: Note this training rule uses the agent's current Q values for the new state
+s' to refine its estimate of ~(s, a) for the previous state s. 
+- [ ] Each time the agent moves forward from an old state to a new one, Q
+learning propagates Q estimates backward from the new state to the old. At the
+same time, the immediate reward received by the agent for the transition is used
+to augment these propagated values of Q.
+- [ ] How will the values of Q evolve as the Q learning algorithm is applied in
+this case? With all the Q values initialized to zero, the agent will make no changes
+to any Q table entry until it happens to reach the goal state and receive a nonzero
+reward. This will result in refining the Q value for the single transition leading
+into the goal state. On the next episode, if the agent passes through this state
+adjacent to the goal state, its nonzero Q value will allow refining the value for
+some transition two steps from the goal, and so on. Given a sufficient number of
+training episodes, the information will propagate from the transitions with nonzero
+reward back through the entire state-action space available to the agent, resulting
+eventually in a Q table containing the Q values shown
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
