@@ -312,19 +312,7 @@ some transition two steps from the goal, and so on. Given a sufficient number of
 training episodes, the information will propagate from the transitions with nonzero
 reward back through the entire state-action space available to the agent, resulting
 eventually in a Q table containing the Q values shown
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+
 ## Introduction to Statistical Learning (2nd Edition) Chapter 10 Deep Learning 
 - [ ] - [ ] The cornerstone of deep learning is the neural network
 - [ ] Neural networks resurfaced after 2010 with the new name deep learning, with new architectures,
@@ -474,35 +462,271 @@ that give roughly equivalent performance, pick the simplest
 
 
 ## Handbook of AI and Big Data Applications in Investments - Chapter 8 
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [ ] The larger
+a trade is, the more impact it tends to have on market prices.
+This impact can be measured as slippage (i.e., the difference
+between a reference price before the start of the trade and
+the prices at which trades are executed). To minimize this
+slippage cost, which can lead to a significant performance
+degradation over time, machine learning (ML) methods can
+be deployed to improve execution algorithms in various ways.
+- [ ] To minimize the adverse impact
+of trades on the market price, this large order is split into
+smaller slices that are then executed over the available time
+horizon. The role of the algorithm is to choose an execution
+schedule that reduces the slippage bill as much as possible. If the order was not split up this way and distributed
+over time but instead was executed as a market order at the
+moment the trade instruction was presented, then large buy
+orders would push prices up, sell orders would push them
+down, or there might simply not be enough liquidity in the
+market at the time to complete the trade, leading to a less
+favorable slippage cost or an incomplete execution.
+- [ ] TWAP (time-weighted average price) execution, which
+serves as a benchmark for more advanced execution algorithms to surpass.
+- [ ] Another commonly used execution strategy makes use of information on trading volume,
+or market turnover, because a higher volume allows larger
+trades to be executed for the same amount of price impact.
+This type of strategy targets execution of a block of shares
+at the volume-weighted average price (VWAP) by splitting up
+execution over time proportionately to the expected volume
+profile.
+- [ ] One role for ML algorithms in execution is therefore to
+compute forecasts of short-term price movements and
+expected volume that an execution algorithm can use
+to front- or back-load the execution schedule—in effect,
+locally speeding up or slowing down trading activity.
+- [ ] Most electronic exchanges involved in the trading of cash
+equities, futures, or options use limit order books (LOBs) to
+match buy and sell orders using a price–time priority matching mechanism. In this prioritization scheme, orders are first
+matched by their price levels, with orders at the same price
+on a first-come, first-served basis. Every limit order to buy
+with a price lower than any sell order in the LOB is added to
+the bid side of the LOB, where levels are ordered from best
+(highest price and earliest arrival) to worst (lowest price and
+latest arrival).
+- [ ] The bid level with
+the highest price is called the best bid, and the ask level with the lowest price is called the best ask. The difference
+in price between the best ask and best bid is called the
+spread. If a market order is placed to buy (sell), it is first executed against the best price level of the ask (bid) side, then
+executed in order of arrival time of the corresponding limit
+order, and finally executed against the next level if the order
+is larger than the number of shares available at the best
+price
+- [ ] Given this order matching mechanism, LOBs are often
+described as double-sided continuous auctions, since a
+continuous order flow changes the book dynamically over
+time
+- [ ] Over the short term, one of the best indicators of immediate
+price moves in the LOB is the order flow imbalance (Cont,
+Kukanov, and Stoikov 2014). The definition of the order flow
+imbalance (OFI) is the order flow on the buy side: incoming
+limit buy orders at the best bid, Lb, net of order cancellations, Cb, and market orders, Mb, minus the opposing sellside flow, within a period of time: . OFI = (Lb - Cb - Ms) - (Ls - Cs - Mb)
+- [ ] This measure captures an imbalance between demand and
+supply in the market, which is an essential determinant
+of the market price. A high positive order flow imbalance
+indicates excessive buy pressure at current prices, thereby
+making it more likely that prices will rise imminently. 
+- [ ] order book imbalance (OBI): OBI = (d^b - d^s) / (d^b + d^s)
+- [ ] Here, db and ds
+ are the depths of the best bid and best
+ask, respectively. The OBI calculates the
+normalized difference between the depth (number of
+available shares) on the buy side at the best bid, db, and
+the number of shares posted on the sell side at the best
+ask, ds
+- [ ] A classical approach in statistical modeling is to start out
+with simple, perhaps linear, models and a small set of variables, or features, that are likely to have some predictive
+power for the quantity of interest. Over the modeling process, model complexity is gradually increased and features
+are further engineered and refined to extract more information from the raw data.
+- [ ] ML literature by deep learning and artificial neural network
+(ANN) models, most recent approaches, however, have
+moved away from handcrafted feature engineering and
+instead approached prediction problems using raw data
+directly. This trend has also taken hold in financial ML and
+quantitative trading.
+- [ ] Deep Order FLow Imbalance model: only extracted order flow features from the top 10 levels of the order books and were able to show great performance. This implies
+that practitioners might be able to get away with simpler
+models in some cases by performing an input data transformation from raw data to order flows. These results contrast with those of the same simple neural network models
+that instead use raw order book features, which cannot
+achieve any predictive power on the same task, implying
+that the data transformation is essential. 
+- [ ] DeepLOB - CCN deep learning model, This type of model currently provides the most
+accurate short-term price signals, which can be used to
+improve execution trajectories. To improve the robustness
+of forecasts, DeepLOB can also be extended to perform
+quantile regression on the forward return distribution 
+which uses a deep neural network architecture with convolutional layers and an inception module
+- [ ] Convolutional neural networks (CNNs) were originally developed for visual classification tasks, such as handwritten
+digit recognition or classifying images based on their content.
+- [ ] Convolutional layers act as
+local filters on an image, aggregating local information in
+every special region. During learning, the weights of many
+such filters are updated as the overall system learns to
+recognize distinct features in the data, such as horizontal or
+vertical lines, corners, and regions of similar contrast.
+- [ ] To translate written text
+from one language to another, the idea of the sequence-tosequence model (Sutskever, Vinyals, and Le 2014) is to use
+an LSTM encoder to learn a representation of a sentence as
+a fixed-length vector and then use a separate LSTM-based
+decoder to again translate this vector representation into
+the target language.
+- [ ] Adapting this idea to predict return
+trajectories, the model in Zhang and Zohren (2021) uses
+the DeepLOB network (Zhang et al. 2019a) as an encoder,
+while an attention mechanism (Vaswani, Shazeer, Parmar,
+Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin 2017)
+allows using selected hidden states of the encoder layers
+in the decoding step, producing the forecast time series.
+- [ ] Using a combination of ML models, we can thus engineer
+a complete execution strategy. An example algorithm
+might work as follows. Volatility forecasts, obtained using
+any method from historical averaging over generalized
+autoregressive conditional heteroskedasticity (GARCH)
+models to deep learning, can be used to schedule either
+the time allowed for an execution ticket or the amount of
+front-loading over a fixed time horizon by controlling how
+execution slice sizes decrease over time. Using ML forecasts of trade volume, we can further modulate execution
+schedules by proportionately changing future slice sizes
+with expected volume forecasts. Predicted price paths can
+then be used to fine-tune the strategy by varying placement levels (prices) dynamically. Should we expect a favorable price move, we would place a passive limit order in the
+book at the first level—or even deeper into the book if th eexpected price move is sufficiently large.
+- [ ] reinforcement learning (RL) algorithms to plan
+the execution trajectory. RL—and especially deep RL using
+deep neural networks—has been tremendously successful
+- [ ] On a theoretical level, the execution problem can be
+framed as a partially observable Markov decision process
+(POMDP), which can be amenable to being solved using RL
+algorithms. The RL learning paradigm works analogously
+to biological learning processes in animals and humans. 
+- [ ] The agent, our execution algorithm, interacts with a market
+environment in state s, which describes all information
+necessary to characterize the current state of the market,
+by performing an action, a, thereby transitioning the state
+to s' = T(s,a). The environment state is further assumed to satisfy the Markov property, which means that past states
+do not add any further relevant information for the future.
+The agent, however, perceives not the entire state of the
+world but only an observation, o’ = obs(s’), and hence does
+usually not know the underlying state exactly. In addition
+to the new observation o’ at each step, the learner also
+receives a reward signal, r. Based on the reward signal, the
+RL algorithm learns over time which sequence of actions
+leads to the highest expected cumulative rewards.
+- [ ] The most basic kind of “simulator” simply uses
+historical market prices. This approach limits the action
+space to timing market orders, because past prices alone
+cannot determine whether a limit order would have been
+executed or not. Another shortcoming of relying solely on
+historical prices for simulation is that trades do not generate any market impact, because neither do they take away
+liquidity in the book nor can they cause any other market
+participant to react to the trade. To alleviate the latter problem, simulation environments are sometimes enhanced
+with stochastic models of price impact to represent more
+realistic costs of aggressive trading. 
+- [ ] However, this alone does not solve the problem of counterfactual behavior by other agents. For example, if one of
+our orders is executed, it might imply that someone else’s
+order was not executed. They then might have placed
+another order at a different price; however, this is not represented in the historical data. One approach to handle these
+counterfactual scenarios is agent-based modeling, which
+represents individual traders explicitly in a simulation.
+These simulated agents follow their own trading strategies
+and can react to changes in the market caused by our
+execution algorithm, as well as to actions and reactions of
+other agents. Capturing realistic trading behavior remains
+a challenging task, and building realistic LOB models is the
+subject of active research.
+
 ## Handbook of AI and Big Data Applications in Investments - Chapters 10 and 11
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+### Chapter 10: ACCELERATED AI AND USE CASES IN INVESTMENT MANAGEMENT
+- [ ] Investment professionals are increasingly integrating AI and big data into their investment processes, using advanced technologies like AI "factories" and simulation platforms. This trend is driven by the potential for AI to generate alpha (investment returns), improve risk management, enhance client access, and provide customization opportunities. Embracing these technologies has become a key differentiator in the industry.
+- [ ] Massive amounts of data, such as text-based or satellite imagery data, need to be collected, cleaned, streamed, and analyzed—tasks that machines can perform very efficiently. AI technologies help process this data, providing transparency and traceability, which are crucial for human–machine interaction and validation. This enables data narratives and supports subject matter experts. Manual analysis of such vast data is not feasible.
+- [ ] The investment firms of the future will succeed by strategically integrating AI and big data into their processes. Key elements for an effective AI strategy include:
+
+    - Infrastructure: Developing appropriate infrastructure for AI training, simulation, risk management, algorithmic trading, and backtesting.
+    - Scalable Workflow: Creating a scalable process for developing and deploying AI models across the enterprise.
+    - Robust AI Models: Building models that are not only powerful but also explainable and verifiable, increasing confidence and adoption of AI technologies.
+- [ ] A crucial technology to implement these elements is accelerated computing, which enhances simulation, data manipulation, AI model building, and deployment. This technology boosts productivity, return on investment (ROI), model quality, and scalability while reducing costs, time to insight, energy consumption, and infrastructure complexity.
+- [ ] The need for accelerated computing becomes evident when combining and analyzing multiple data sources, such as remote sensors, IoT devices, social media, and satellite data. Accelerated computing technologies enable faster aggregation, correlation, analysis, and visualization of these data sources by significantly reducing analytical latency, often to milliseconds.
+- [ ] New machine learning (ML) forecasting techniques that leverage complex, unstructured datasets (e.g., satellite images) and generative methods for synthetic data are transforming strategy development and backtesting.
+- [ ] Investors are increasingly focused on real-time insights into company performance, sustainability, and environmental risk factors. To effectively analyze these large, complex datasets, traditional CPU-based servers may struggle, as they are slower and more energy-intensive than graphics processing units (GPUs), which are better suited for high-speed, multilayered, and multimodal analysis. This makes GPUs crucial for efficiently processing vast amounts of data.
+- [ ] GPUs can be found in many compute clusters, ranging from
+supercomputing to public clouds and even enterprise data
+centers. They can accelerate the processing of huge amounts
+of structured and unstructured large datasets and execute
+large training and inferencing workloads. These ultra-fast
+processors are designed for massively accelerated training
+epochs, queries, complex image rendering, and interactive visualization. Combined with purpose-built analytics
+software, they deliver the kind of speed and zero-latency
+interactivity that professional investors need.
+- [ ] To summarize, accelerated computing can build more
+model alternatives, with potentially higher accuracy and
+at the same time at lower cost and energy consumption and with greater flexibility. Such approaches as “fail
+fast, fail forward” can be implemented with accelerated computing, which can be viewed as a kind of “time
+machine” by speeding up the iterations required for model
+development.
+- [ ] Natural Language Processing (NLP) is a key AI technique used to process text for tasks like named entity recognition, sentiment analysis, language translation, and text summarization. In the financial and ESG (Environmental, Social, and Governance) space, NLP is applied to extract and digitize relevant information from complex documents, such as financial news, ESG reports, and disclosures, which often include images, tables, and varied formats.
+- [ ] An ESG and risk data repository can centralize this information, making it easier to operationalize and adapt to changing regulatory requirements.
+- [ ] A real-time ESG analytics process incorporates news and media screening to monitor adverse events and help investors stay on top of ESG reporting and assessment. Advanced NLP technologies can analyze unstructured data from news and social media, offering insights that, when combined with ESG scores from rating agencies, provide a comprehensive view for more informed decision-making.
+- [ ] Earth Observation (EO) involves gathering data about the Earth's physical, chemical, and biological systems using remote sensing technologies, primarily via satellites with imaging devices. This data provides reliable, repeatable insights into environmental conditions and changes. When combined with machine learning (ML), EO has the potential to revolutionize information availability within financial systems.
+- [ ] Spatial finance refers to the integration of geospatial data and analysis into financial services, enabling better management of climate-related and environmental risks such as biodiversity loss, water quality threats, and deforestation. According to the EU Space Programme (EUSPA), by 2031, the insurance and finance sector will become the largest contributor to global EO revenues, with an estimated EUR 994 million and an 18.2% market share.
+- [ ] Modern portfolio theory (MPT) and portfolio diversification often face practical issues, such as backtest overfitting and reliance on noisy covariance estimates for optimization. To address these, alternative approaches aligned with the Monte Carlo backtesting paradigm are recommended, which could help mitigate the replication crisis. One such approach is the use of synthetic datasets to develop investment algorithms, similar to how synthetic data is used for training autonomous machines like robots or self-driving cars. This technique helps investors navigate unknown data-generating processes and test AI-driven strategies.
+- [ ] While significant progress has been made in generating synthetic asset return data with realistic characteristics, less attention has been paid to generating correlated returns that align with empirical covariance matrices. This is crucial for pricing and managing risks of correlation-dependent financial instruments. Techniques like Generative Adversarial Networks (GANs) and evolutionary multi-objective optimization (e.g., "matrix evolutions") are being used to generate realistic correlation scenarios for financial modeling. These methods can create millions of unique, yet realistic, correlation matrices that have never been observed, allowing for robust testing of investment portfolios.
+### Chapter 11: SYMBOLIC AI: A CASE STUDY
+- [ ] Samuel is a composite AI14 system that collaborates with
+humans. It acts as a digital colleague that guides the
+human investment team with transparent, systematized,
+and well-substantiated advice. Its decisions are transparently substantiated and can be tracked down to each
+datapoint used, allowing for efficient reconciliation with the
+thought process of the human team.
+- [ ] Symbolic AI, or
+classical AI, is a collection of techniques that are based
+on human-readable and high-level representations of the
+problem. E
+- [ ] The knowledge base is a database that contains all data
+related to the decision-making process and includes all
+principles that need to be applied to those data in order
+to get the outcomes. 
+- [ ] The calculation engine applies the rules to the data and
+stores the outputs in the knowledge base. The calculation
+engine requires human oversight and needs to be configured by humans. 
+- [ ] Interaction tools enable the interaction between Samuel
+and humans. The output of Samuel needs to be interpreted
+by humans, and the input needs to be given by humans.
+Interaction tools can have many different forms, ranging
+from dashboards accessible via the web browser to search
+bars and forms for input
+- [ ] The data pipelines are ETL (extract, transform, load)15 flows
+that ingest data from various sources outside the team.
+Here the IDs are matched, and data are prepared for further usage
+- [ ] The knowledge pipelines are an active collaboration
+between humans and Samuel. Knowledge is constantly
+evolving, and as such, the principles need to be updated
+regularly. Thus, it is important that whenever new knowledge is created after a group discussion, this knowledge is
+made explicit and codified in the form of principles
+- [ ] Interaction with Samuel during the investment process can
+be grouped into four types: evaluating the buy/hold/sell
+decision, preparing the proposal, portfolio monitoring, and
+letting Samuel learn.
+- [ ] The evaluation of the final decision is the moment where
+the human-proposed action is ranked by Samuel versus all
+other potential actions. If other actions are more favorable,
+the portfolio managers that do the proposal will have to
+explain why they deviate from Samuel.
+- [ ] Compared to the human team, Samuel excels in portfolio
+monitoring. Samuel collects the characteristics to monitor
+from each individual investment and contains the portfolio
+construction principles.
+- [ ] Whenever
+after reconciliation of the proposed action with Samuel
+a consistent omission in Samuel’s reasoning is found, its
+principles need to be adjusted. Doing so requires that the
+omission be made explicit, and it has to be made clear
+what new principles need to be added.
+- [ ] Collaborating with a digital colleague like Samuel offers three key advantages:
+
+    - Improved Decision Making: A digital colleague helps counter human cognitive biases, which can distort decision-making. Rule-based models, like Samuel, often outperform human judgment because they consistently apply best practices and guidelines. Cognitive biases can cause inconsistency in decisions, both between individuals and within the same individual over time. Samuel mitigates this variability by making decisions based on agreed-upon principles, providing a consistent and reliable benchmark.
+
+    - Transparency: Samuel enhances transparency by making the decision-making process more understandable. This is crucial for explaining investment decisions to clients and stakeholders. For example, investors can trace how responsible investment factors, like ESG (Environmental, Social, and Governance) considerations, influence decision-making. This transparency helps ensure that the reasoning behind investment choices is clear and accessible.
+
+    - Improved Efficiency: Samuel streamlines the decision-making process by automating lower-level decisions, which saves time and improves the overall efficiency of the investment process. It provides contextualized suggestions, like rental growth forecasts or discount rates, embedded in the workflow. These recommendations can be automatically updated, such as with new data for discount rate building blocks, improving both speed and accuracy in decision-making.
 ## Keynote on Algorithmic Bias (Drs. Isbell and Littman)
 - [ ] You cant escape hyperparameters and latent variables: Machine Learning as a Software Engineer Enterprise
 - [ ] Basic Conceit: As a community, ew are complier hackers. We should send at least as much time being software engineers, language nerds and ethnographers 
@@ -524,4 +748,22 @@ that give roughly equivalent performance, pick the simplest
 - [ ] important to pay attention to whole learning pipeline, there are interesting technical problems to be solved, moral concerns about what happens to people if we get this wrong, taking the long view is essential
 - [ ] Bias stems from the decisions we make, but we can identify it and be cognizant of it 
 ## Interview with Tammer Kamel (Ed Lessons)
+- [ ] Quandl platform - gets the data that professional investors need into their hand and into the format they need it in to use for managing money
+- [ ] Methods for getting data: Low level API and they pull db into their database or analysis tool.
+- [ ] Mix of historical and updated daily data
+- [ ] heart is no SQL database, with an API built ontop. With a website Ruby on Rails websigte.
+- [ ] No SQL because of scalability - deliver a lot of numerical data to lots of people very quickly. 10-50 million
+- [ ] Timestamping - risk of creating a look-ahead bias.
+- [ ] Flaws in data: no perfect data set, but publishers are keen to correct errors quickly because theyve got customers who know its them that provide the data. removes opacity from end user and provider which creates improvement in quality
+- [ ] Jump Diffusion: model that caputres sixth sigma event. If you mix normal distributes and drew from them at different probabilities, mixing two Gaussian distributes mimics reality better, especially if one has higher SD - Draw from both is great for risk management because it simulates rare events and creates fatter tails.
+- [ ] Strategies that Hedge funds use: quantitative fianancing, yield per arbitrage (model swap curve with 2-3 factor model you could discover at any given time thers deviation between current curve and what a sensible yeild curve would look like). Mispriced relative to its peers on that yield curve.
+- [ ] A yield curve is a graphical representation that shows the relationship between the interest rates (or yields) of bonds with the same credit quality but different maturities (i.e., the time to maturity). It typically plots the yields of government bonds, such as U.S. Treasury bonds, at various maturities ranging from short-term (e.g., 1 month) to long-term (e.g., 30 years).
+- [ ] A credit swap (more formally known as a credit default swap, or CDS) is a financial derivative contract that allows one party to transfer the credit risk of a debt instrument to another party. It's essentially a form of insurance against the default of a borrower (e.g., a corporation or government) or a specific debt (e.g., bonds or loans).
 - [ ] 
+- [ ] Distribution of returns for one strategy or one stock, combine distributions for multiple different strategies or stocks. 
+- [ ] A Six Sigma event refers to a process or occurrence that is six standard deviations away from the mean, which in statistical terms indicates a very rare or extreme event.
+- [ ] In the context of Six Sigma methodology, which focuses on improving processes by identifying and eliminating defects, "Six Sigma" itself represents a level of process quality where the defect rate is incredibly low. Specifically, achieving Six Sigma means that the number of defects in a process is 3.4 defects per million opportunities.
+- [ ] In the context of financial markets, a Six Sigma event is often used to describe a highly improbable event, such as a massive stock market drop or a rare financial crisis. It implies an event that is so unlikely that it typically happens once every few million instances.
+- [ ] Find new data sources to find alpha
+- [ ] theortically sound, empirically testable, and simple  GOOD
+- [ ] biggest trap: calibrating the same model with teh same data and seeing "good reults" can be caused by curve fitting
